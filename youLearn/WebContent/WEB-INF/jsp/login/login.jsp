@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>youLearn - Sharing abilities</title>
+<title>youLearn - Sharing skills</title>
 <script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/puts.js"/>"></script>
 <style type="text/css">
@@ -110,7 +110,7 @@
 	<div id="boxLogin">
 		<div id="camposLogin">
 			<h3>Bem vindo,</h3>
-			<p>Digite seus dados para entrar no seu sistema de <b>aprendizado</b>.</p>
+			<p>Digite seus dados para entrar no seu sistema de <b>oportunidades</b>.</p>
 			<form action="#" method="post">
 				<input type="text" class="campo" id="usuario" onblur="verificaMensagem()" /><br/>
 				<input type="password" class="campo" id="senha" onblur="verificaMensagem()" /><br/>
