@@ -1,9 +1,8 @@
 package br.com.youlearn.controller;
 
+import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
-
-import sun.misc.BASE64Encoder;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
@@ -22,29 +21,14 @@ public class AdministracaoController {
 	public void novoUser(Usuario usuario) {
 		
 		String senha;
-		byte[] senhaB;
-		try {
-			MessageDigest digest = MessageDigest.getInstance("MD5");
-			digest.update(usuario.getSenha().getBytes());
-			BASE64Encoder encoder = new BASE64Encoder ();
-			senha = encoder.encode (digest.digest ());
-		} catch (NoSuchAlgorithmException ns) {
-			ns.printStackTrace ();
-			senha = usuario.getSenha();
+		MessageDigest md = null; 
+		try { 
+			md = MessageDigest.getInstance("MD5"); 
+		} catch (NoSuchAlgorithmException e) { 
+			e.printStackTrace(); 
 		} 
-		
-		/*try {
-		    MessageDigest md = MessageDigest.getInstance("MD5");
-		    md.update(usuario.getSenha().getBytes());
-		    senhaB = md.digest();
-		} catch (NoSuchAlgorithmException e) {
-			senha = usuario.getSenha();
-		}
-		
-		String s = new String();
-		for (int i = 0; i < senhaB.length; i++)
-			s += Integer.toHexString((((senhaB >> 4) & 0xf) << 4) | (senhaB & 0xf));
-		senha = s;*/
+		BigInteger hash = new BigInteger(1, md.digest(usuario.getSenha().getBytes())); 
+		senha = hash.toString(16);    
 		
 		System.out.println("Login: " + usuario.getLogin());
 		System.out.println("Nome: " + usuario.getNome());
