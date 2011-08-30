@@ -20,9 +20,8 @@
 <body>
 	<div id="wrapper">
 		<div id="topo">
-			<div id="topo-esq"></div>
-			<div id="topo-meio"><img src="<c:url value="/imgs/logo2.png"/>" alt="ChingLing!" style="margin-top:5px" /></div>
-			<div id="topo-dir"></div>
+			<img src="<c:url value="/imgs/logo2.png"/>" alt="ChingLing!" style="margin-top:5px" />
+			<input type="text" name="pesquisaCurso" id="pesquisaCurso" value="Pesquisar cursos..." style="float:right; margin-top:20px" />
 		</div>
 		<div style="clear:both"></div>
 		<div id="principal-meio">

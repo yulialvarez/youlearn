@@ -26,6 +26,8 @@ public class Usuario {
 	
 	private Date dataCriacao;
 	private Date aniversario;
+	
+	private String descricao;
 	private String email;
 	private String endereco;
 	private String telefone;
@@ -99,6 +101,12 @@ public class Usuario {
 	}
 	public void setCelular(String celular) {
 		this.celular = celular;
+	}
+	public void setDescricao(String descricao) {
+		this.descricao = descricao;
+	}
+	public String getDescricao() {
+		return descricao;
 	}
 	
 }
