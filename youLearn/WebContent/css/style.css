@@ -1,10 +1,13 @@
-* { margin:0; padding:0; font-size:14px; font-family:Tahoma, Verdana, sans-serif; color:white; }
+* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:white; }
 a { text-decoration:none; color:#1E5395; }
 a:hover { text-decoration:underline; }
 body { padding:10px 0 28px 0; background:url('../imgs/fundo2.jpg'); background-attachment:fixed; }
 h1 { font-size:24px; }
 h2 { font-size:20px; }
 h3 { font-size:16px; }
+
+input { color:black; padding:3px; }
+
 h2.nome { 
 	font-weight:bold; 
 	padding:5px; 
@@ -17,16 +20,13 @@ h2.nome {
 }
 p { margin-top:10px; }
 #wrapper { width:auto; margin:0 auto; }
-#topo-esq { display:inline; float:left; width:1%; background:url('../imgs/topo-esq.png'); height:60px; overflow:hidden; }
-#topo-meio { float:left; width:98%; background:url('../imgs/topo-meio.png'); height:60px; }
-#topo-dir { float:left; width:1%; background:url('../imgs/topo-dir.png'); height:60px; overflow:hidden; }
 
+#topo { width:96%; text-align:left; margin:0px auto; }
 #principal-meio { 
 	width:96%; 
 	text-align:left; 
-	margin:0px 1%; 
-	padding:0 1%;
-	padding-top:10px; 
+	margin:0px auto; 
+	padding:10px 10px 0 10px;
 	border:1px dotted blue; 
 	border-top:none; 
 	background:url("../imgs/fundo.png");
@@ -41,7 +41,8 @@ p { margin-top:10px; }
 	background:#505354; 
 	color:white; 
 	line-height:24px; 
-	padding:0px 2%;
+	padding:0px;
+	padding-left:2%;
 	_position: absolute;
 	_top:expression(body.scrollTop + document.body.clientHeight - 24 + "px");
 }

@@ -1,10 +1,12 @@
 package br.com.youlearn.modelo;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 import org.hibernate.validator.NotNull;
 
@@ -19,6 +21,8 @@ public class Curso {
 	private String descricao;
 	@NotNull
 	private Date dataCriacao;
+	@OneToMany
+	private List<Disciplina> disciplina;
 	
 	public Long getId() {
 		return id;
@@ -43,5 +47,11 @@ public class Curso {
 	}
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
+	}
+	public void setDisciplina(List<Disciplina> disciplina) {
+		this.disciplina = disciplina;
+	}
+	public List<Disciplina> getDisciplina() {
+		return disciplina;
 	}
 }

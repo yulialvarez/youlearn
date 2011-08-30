@@ -12,5 +12,6 @@
 		
 		<mapping class="br.com.youlearn.modelo.Usuario" />
 		<mapping class="br.com.youlearn.modelo.Curso" />
+		<mapping class="br.com.youlearn.modelo.Disciplina" />
 	</session-factory>
 </hibernate-configuration>
