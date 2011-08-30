@@ -11,7 +11,4 @@ public class LoginController {
 	public void login() {
 	}
 	
-	@Get @Path("/novousuario")
-	public void novoUsuario() {
-	}
 }
