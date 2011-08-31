@@ -8,7 +8,20 @@
 <title>youLearn - Sharing skills</title>
 </head>
 <body>
-
+	<c:if test="${not empty sucesso}">
+		<div id="notice">
+			<p>${sucesso }</p>
+		</div>
+	</c:if>
+	<c:if test="${not empty errors}">
+		<div id="errors">
+			<ul>
+				<c:forEach items="${errors }" var="error">
+					<li>${error.category } - ${error.message }</li>
+				</c:forEach>
+			</ul>
+		</div>
+	</c:if>
 	<form action="<c:url value="/adm/usuarios/novo"/>" id="formulario" method="POST">
 		Login: <input type="text" id="login" name="usuario.login" />
 		<br/>

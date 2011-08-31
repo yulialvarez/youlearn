@@ -3,16 +3,31 @@ package br.com.youlearn.controller;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.Date;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
 import br.com.caelum.vraptor.Post;
 import br.com.caelum.vraptor.Resource;
+import br.com.caelum.vraptor.Result;
+import br.com.caelum.vraptor.Validator;
+import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.youlearn.dao.UsuarioDao;
 import br.com.youlearn.modelo.Usuario;
 
 @Resource
 public class AdministracaoController {
 
+	private final UsuarioDao userDao;
+	private final Validator validator;
+	private final Result result;
+	
+	public AdministracaoController(UsuarioDao userDao, Validator validator, Result result) {
+		this.userDao = userDao;
+		this.validator = validator;
+		this.result = result;
+	}
+	
 	@Get @Path("/adm/usuarios/novo")
 	public void novoUsuario() {
 	}
@@ -20,6 +35,12 @@ public class AdministracaoController {
 	@Post @Path("/adm/usuarios/novo")
 	public void novoUser(Usuario usuario) {
 		
+		if (userDao.existeUsuario(usuario)) {
+			validator.add(new ValidationMessage("Já existe usuário com este login!", "usuario.login"));
+		}
+		validator.onErrorUsePageOf(this).novoUsuario();
+		
+		/* GERA MD5 DA SENHA */
 		String senha;
 		MessageDigest md = null; 
 		try { 
@@ -30,15 +51,11 @@ public class AdministracaoController {
 		BigInteger hash = new BigInteger(1, md.digest(usuario.getSenha().getBytes())); 
 		senha = hash.toString(16);    
 		
-		System.out.println("Login: " + usuario.getLogin());
-		System.out.println("Nome: " + usuario.getNome());
-		System.out.println("Senha: " + usuario.getSenha() + " md5:" + senha);
-		System.out.println("Perfil: " + usuario.getPerfil());
-		System.out.println("Data de aniversario: " + usuario.getAniversario());
-		System.out.println("Descricao: " + usuario.getDescricao());
-		System.out.println("Celular: " + usuario.getCelular());
-		System.out.println("Telefone: " + usuario.getTelefone());
-		System.out.println("Endereco: " + usuario.getEndereco());
-		System.out.println("Email: " + usuario.getEmail());
+		/* ADICIONA USUÁRIO E REDIRECIONA PARA OUTRO CADASTRO */
+		usuario.setSenha(senha);
+		usuario.setDataCriacao(new Date());
+		userDao.adiciona(usuario);
+		result.include("sucesso", "Usuario " + usuario.getNome() + " cadastrado com sucesso!");
+		result.redirectTo(this).novoUsuario();
 	}
 }
