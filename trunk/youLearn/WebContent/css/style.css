@@ -6,8 +6,8 @@ h1 { font-size:24px; }
 h2 { font-size:20px; }
 h3 { font-size:16px; }
 
-input, textarea { color:black; padding:3px; }
-input[type=text], textarea { border:1px solid #000; }
+input, textarea, select { color:black; padding:3px; }
+input[type=text], input[type=password], textarea { border:1px solid #000; }
 p { margin-top:10px; }
 
 h2.nome { 
@@ -29,7 +29,7 @@ h2.nome {
 	text-align:left; 
 	margin:0px auto; 
 	padding:10px 10px 0 10px;
-	border:1px dotted blue; 
+	border:1px dotted black; 
 	border-top:none; 
 	background:url("../imgs/fundo.png");
 }
@@ -109,6 +109,6 @@ input[type=text], textarea { padding:3px; border:1px solid #000; }
 a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff; text-decoration:none; margin:0 5px 0 0; line-height:23px; }
 .prev:hover, .next:hover { background-color:#000; text-decoration:none;}
 #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
-#steps li {font-size:24px; float:left; padding:10px; color:white;}
+#steps li {font-size:24px; float:left; padding:10px; color:white; background-color:#c1c1c1; margin:10px 5px 0 0;}
 #steps li span {font-size:11px; display:block;}
 #steps li.current, #steps li.current > span { color:#1E5395; font-weight:bold; }
