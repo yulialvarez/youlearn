@@ -6,7 +6,9 @@ h1 { font-size:24px; }
 h2 { font-size:20px; }
 h3 { font-size:16px; }
 
-input { color:black; padding:3px; }
+input, textarea { color:black; padding:3px; }
+input[type=text], textarea { border:1px solid #000; }
+p { margin-top:10px; }
 
 h2.nome { 
 	font-weight:bold; 
@@ -18,7 +20,7 @@ h2.nome {
 	text-align:center; 
 	position:relative;
 }
-p { margin-top:10px; }
+
 #wrapper { width:auto; margin:0 auto; }
 
 #topo { width:96%; text-align:left; margin:0px auto; }
@@ -31,7 +33,6 @@ p { margin-top:10px; }
 	border-top:none; 
 	background:url("../imgs/fundo.png");
 }
-
 #rodape {
 	position:fixed; 
 	bottom:0px; 
@@ -56,7 +57,6 @@ p { margin-top:10px; }
 	margin-right:10px;	
 	min-height:300px;
 }
-
 #conteudo { float:left; padding:10px; }
 
 
@@ -100,3 +100,15 @@ p { margin-top:10px; }
 #nav li:hover ul, #nav li li:hover ul, #nav li.sfhover ul, #nav li li.sfhover ul { /* lists nested under hovered list items */
 	left: auto;
 }
+
+/* ESTILIZACAO DE FORMULARIO PARA CADASTRO E EDIÇÃO */
+fieldset { border:none; }
+legend { font-size:18px; margin:0px; padding:10px 0px; color:#fff; font-weight:bold;}
+label { display:block; margin:15px 0 5px;}
+input[type=text], textarea { padding:3px; border:1px solid #000; }
+a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff; text-decoration:none; margin:0 5px 0 0; line-height:23px; }
+.prev:hover, .next:hover { background-color:#000; text-decoration:none;}
+#steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
+#steps li {font-size:24px; float:left; padding:10px; color:white;}
+#steps li span {font-size:11px; display:block;}
+#steps li.current, #steps li.current > span { color:#1E5395; font-weight:bold; }

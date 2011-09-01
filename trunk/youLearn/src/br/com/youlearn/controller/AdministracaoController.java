@@ -36,7 +36,7 @@ public class AdministracaoController {
 	public void novoUser(Usuario usuario) {
 		
 		if (userDao.existeUsuario(usuario)) {
-			validator.add(new ValidationMessage("J· existe usu·rio com este login!", "usuario.login"));
+			validator.add(new ValidationMessage("J√° existe usu√°rio com este login!", "usuario.login"));
 		}
 		validator.onErrorUsePageOf(this).novoUsuario();
 		
@@ -51,11 +51,11 @@ public class AdministracaoController {
 		BigInteger hash = new BigInteger(1, md.digest(usuario.getSenha().getBytes())); 
 		senha = hash.toString(16);    
 		
-		/* ADICIONA USU¡RIO E REDIRECIONA PARA OUTRO CADASTRO */
+		/* ADICIONA USU√ÅRIO E REDIRECIONA PARA OUTRO CADASTRO */
 		usuario.setSenha(senha);
 		usuario.setDataCriacao(new Date());
 		userDao.adiciona(usuario);
-		result.include("sucesso", "Usuario " + usuario.getNome() + " cadastrado com sucesso!");
+		result.include("sucesso", "Usu√°rio " + usuario.getNome() + " cadastrado com sucesso!");
 		result.redirectTo(this).novoUsuario();
 	}
 }

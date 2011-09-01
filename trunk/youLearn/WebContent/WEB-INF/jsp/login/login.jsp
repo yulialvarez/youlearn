@@ -6,8 +6,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>youLearn - Sharing skills</title>
+
 <script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/puts.js"/>"></script>
+
 <style type="text/css">
 	* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:#004A77; }
 	body { background:white url('<c:url value="/imgs/fundo2.jpg"/>') no-repeat right top; }
@@ -72,48 +74,24 @@
 		margin-top:10px;
 	}
 </style>
+
 <script>
 	$(document).ready(function() {
-		verificaMensagem();
 		$("#usuario").puts("Usuário");
 		$("#senha").puts("Senha");
 	});
 	
-	function verificaMensagem() { 
-		var usuario = document.getElementById("usuario").value;
-		var senha = document.getElementById("senha").value;
-		if (usuario.length > 2 && usuario != "Usuário" && senha != "Senha" && senha != "") {
-			$("#msgbox").css("display","none")
-               .addClass('messagebox')
-                    .text('Clique para entrar.')
-                         .fadeIn(1000);
-		} else if (usuario.length < 3 && senha == "Senha") {
-			$("#msgbox").css("display","none")
-               .addClass('messagebox')
-                    .text('Entre com usuário/senha...')
-                         .fadeIn(1000);
-		} else if (usuario.length > 2 && usuario != "Usuário" && usuario != "" && (senha == "Senha" || senha.length < 3)) {
-			$("#msgbox").css("display","none")
-               .addClass('messagebox')
-                    .text('Aguardando senha...')
-                         .fadeIn(1000);
-		} else if (senha.length > 2 && senha != "Senha" && senha != "" && (usuario = "Usuário" || usuario.length < 3)) {
-			$("#msgbox").css("display","none")
-               .addClass('messagebox')
-                    .text('Aguardando usuário...')
-                         .fadeIn(1000);
-		}
-	}
 </script>
+
 </head>
 <body>
 	<div id="boxLogin">
 		<div id="camposLogin">
 			<h3>Bem vindo,</h3>
 			<p>Digite seus dados para entrar no seu sistema de <b>oportunidades</b>.</p>
-			<form action="#" method="post">
-				<input type="text" class="campo" id="usuario" onblur="verificaMensagem()" /><br/>
-				<input type="password" class="campo" id="senha" onblur="verificaMensagem()" /><br/>
+			<form action="#" method="post" id="loginForm">
+				<input type="text" class="campo" id="usuario" name="usuario.login" /><br/>
+				<input type="password" class="campo" id="senha" name="usuario.senha" /><br/>
 				<div id="msgs">
 					<span id="msgbox" class="messagebox">Entre com usuário/senha...</span>
 				</div>
@@ -124,5 +102,40 @@
 			<img src="<c:url value="/imgs/logo.png"/>" width="263px" height="210px"/>
 		 </div>
 	</div>
+	
+	<script type="text/javascript">
+		jQuery(function($){
+		     $("#loginForm").submit(function() {
+		          $("#msgbox").removeClass()
+		               .addClass('messagebox')
+		                    .text('Validando dados...')
+		                         .fadeIn(2000);
+		 
+		          $.post("/youLearn/login",
+		                    {'usuario.login': $('#usuario').val(), 'usuario.senha': $('#senha').val()},
+		                         function(data) {
+		               if(data.string=='true') {
+		               $("#msgbox").fadeTo(200,0.1,function() {
+		                 $(this).html('Redirecionando...')
+		                    .addClass('messageboxok')
+		                         .fadeTo(1900,1,
+		                  function() {
+		                     $(this).removeClass().html('');
+		                     document.location='/youLearn/inicio';
+		                 });
+		               });
+		               } else {
+		               $("#msgbox").fadeTo(200,0.1,function() {
+		                 $(this).html('Dados inválidos')
+		                    .addClass('messageboxerror')
+		                         .fadeTo(1900,1);
+		               });
+		               }
+		        });
+		        return false;
+		     });
+		});
+	</script>
+	
 </body>
 </html>
