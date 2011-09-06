@@ -1,8 +1,10 @@
 <%@ include file="../commons/headerProfile.jsp" %>
 	<script type="text/javascript" src="<c:url value="/js/jquery.dataTables.js"/>"></script>
-	<link rel="stylesheet" type="text/css" href="<c:url value="/css/demo_table.css"/>" media="screen" />
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/datatable.css"/>" media="screen" />
+	<h1>Lista de usuários</h1>
+	<p>Nesta lista de usuários, pode-se visualizar, editar e excluir os usuários que possuem cadastro no sistema youLearn!</p>
 	<c:if test="${not empty lista}">
-		<table cellpadding="0" cellspacing="0" border="0" class="display" id="example">
+		<table id="tabela" class="dataTable">
 			<thead>
 				<tr>
 					<th>Id</th>
@@ -31,7 +33,7 @@
 	</c:if>
 	<script>
 		$(document).ready(function() {
-			$('#example').dataTable( {
+			$('#tabela').dataTable( {
 				"sPaginationType": "full_numbers",
 				"oLanguage": {
 					"sProcessing":   "Processando...",
