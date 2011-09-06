@@ -1,5 +1,7 @@
 package br.com.youlearn.dao;
 
+import java.util.List;
+
 import org.hibernate.Session;
 import org.hibernate.criterion.Restrictions;
 
@@ -30,5 +32,10 @@ public class UsuarioDao {
 		return (Usuario) session.createCriteria(Usuario.class).add(Restrictions.eq("login", usuario.getLogin()))
 															  .add(Restrictions.eq("senha", usuario.getSenha()))
 															  .uniqueResult();
+	}
+	
+	@SuppressWarnings("unchecked")
+	public List<Usuario> listaTodos() {
+		return session.createCriteria(Usuario.class).list();
 	}
 }

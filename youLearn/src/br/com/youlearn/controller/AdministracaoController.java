@@ -3,7 +3,9 @@ package br.com.youlearn.controller;
 import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import br.com.caelum.vraptor.Get;
 import br.com.caelum.vraptor.Path;
@@ -57,5 +59,24 @@ public class AdministracaoController {
 		userDao.adiciona(usuario);
 		result.include("sucesso", "Usuário " + usuario.getNome() + " cadastrado com sucesso!");
 		result.redirectTo(this).novoUsuario();
+	}
+	
+	@Get @Path("/adm/usuarios/lista")
+	public void listaUsuario() {
+		List<Usuario> usuarios = new ArrayList<Usuario>();
+		List<Usuario> lista = userDao.listaTodos();
+		for (Usuario users : lista) {
+			Usuario novoUser = new Usuario();
+			novoUser.setId(users.getId());
+			novoUser.setLogin(users.getLogin());
+			novoUser.setNome(users.getNome());
+			novoUser.setEmail(users.getEmail());
+			novoUser.setDataCriacao(users.getDataCriacao());
+			novoUser.setPerfil(users.getPerfil());
+			
+			usuarios.add(novoUser);
+		}
+		
+		result.include("lista", usuarios);
 	}
 }
