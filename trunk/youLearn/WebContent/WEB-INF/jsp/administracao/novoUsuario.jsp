@@ -1,142 +1,55 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>youLearn - Sharing skills</title>
-<script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.js"/>"></script>
-<script type="text/javascript" src="<c:url value="/js/formToWizard.js"/>"></script>
-<link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>" media="screen" />
-</head>
-<body onload="fazMenu()">
-	<div id="wrapper">
-		<div id="topo">
-			<img src="<c:url value="/imgs/logo2.png"/>" alt="ChingLing!" style="margin-top:5px" />
-			<input type="text" name="pesquisaCurso" id="pesquisaCurso" value="Pesquisar cursos..." style="float:right; margin-top:20px" />
+<%@ include file="../commons/headerProfile.jsp" %>
+	<h1>Novos usu·rios</h1>
+	<p>FaÁa o cadastro de novo usu·rio para ter acesso ao <b>youLearn<u>!</u></b></p>
+	<p>Com este cadastro, o usu·rio poder· acessar e realizar qualquer curso disponibilizado no sistema.<br/>
+	O acesso administrador dar· opÁıes para cadastrar/editar/deletar usu·rios e cursos (e respectivas disciplinas), como tambÈm acesso a todas informaÁıes e configuraÁıes do sistema e status.</p>
+	<c:if test="${not empty sucesso}">
+		<div id="notice">
+			<p>${sucesso }</p>
 		</div>
-		<div style="clear:both"></div>
-		<div id="principal-meio">
-			<div id="sobre-atual">
-				<img src="<c:url value="/imgs/foto.jpg"/>" alt="Usu√°rio" width="280px" height="280px" />
-				<h2 class="nome">Vin√≠cius Marcus Michelutti</h2>
-				<p><b>De<u>:</u></b> Joinville</p>
-				<p><b>Idade<u>:</u></b> 18 anos</p>
-				<p><b>Cursos completos<u>:</u></b> 5</p>
-			</div>
-			
-			<ul id="nav">
-				<li class="submenu">
-					<a href="#">Administra√ß√£o</a>
-					<ul>
-						<li class="subs">
-							<a href="#" >Cursos</a>
-							<ul>
-								<li><a href="#">Adicionar curso</a></li>
-								<li><a href="#">Editar curso</a></li>
-							</ul>
-						</li>
-						<li class="subs">
-							<a href="#">Usu√°rios</a>
-							<ul>
-								<li><a href="#">Adicionar usu√°rio</a></li>
-								<li><a href="#">Listar usu√°rios</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Status</a></li>
-					</ul>
-				</li>
-				<li><a href="#">In√≠cio</a></li>
-				<li class="submenu">
-					<a href="#">Minha central</a>
-					<ul>
-						<li class="subs">
-							<a href="#">Meus Cursos</a>
-							<ul>
-								<li><a href="#">Em andamento</a></li>
-								<li><a href="#">Certifica√ß√µes</a></li>
-							</ul>
-						</li>
-						<li><a href="#">Editar informa√ß√µes</a></li>
-					</ul>
-				</li>
-				<li><a href="#">Cursos</a></li>
+	</c:if>
+	<c:if test="${not empty errors}">
+		<div id="errors">
+			<ul>
+				<c:forEach items="${errors }" var="error">
+					<li>${error.category } - ${error.message }</li>
+				</c:forEach>
 			</ul>
-			
-			<script type="text/javascript">
-				function fazMenu() {
-					var sfEls = document.getElementById("nav").getElementsByTagName("LI");
-					for (var i=0; i<sfEls.length; i++) {
-						sfEls[i].onmouseover=function() {
-							this.className+=" sfhover";
-						}
-						sfEls[i].onmouseout=function() {
-							this.className=this.className.replace(new RegExp(" sfhover\\b"), "");
-						}
-					}
-				}
-			</script>
-			<div style="margin-left:320px;">
-				<h1>Novos usu√°rios</h1>
-				<p>Fa√ßa o cadastro de novo usu√°rio para ter acesso ao <b>youLearn<u>!</u></b></p>
-				<p>Com este cadastro, o usu√°rio poder√° acessar e realizar qualquer curso disponibilizado no sistema.<br/>
-				O acesso administrador dar√° op√ß√µes para cadastrar/editar/deletar usu√°rios e cursos (e respectivas disciplinas), como tamb√©m acesso a todas informa√ß√µes e configura√ß√µes do sistema e status.</p>
-				<c:if test="${not empty sucesso}">
-					<div id="notice">
-						<p>${sucesso }</p>
-					</div>
-				</c:if>
-				<c:if test="${not empty errors}">
-					<div id="errors">
-						<ul>
-							<c:forEach items="${errors }" var="error">
-								<li>${error.category } - ${error.message }</li>
-							</c:forEach>
-						</ul>
-					</div>
-				</c:if>
-				<form action="<c:url value="/adm/usuarios/novo"/>" id="formulario" method="POST">
-					<fieldset>
-						<legend>Cadastro de usu√°rio</legend>
-						<label for="login">Login:</label>
-						<input type="text" id="login" name="usuario.login" />
-						<label for="senha">Senha:</label>
-						<input type="password" id="senha" name="usuario.senha" />
-						<label for="perfil">Perfil:</label>
-						<select id="perfil" name="usuario.perfil">
-							<option selected value="aluno">Aluno</option>
-							<option value="administrador">Administrador</option>
-						</select>
-					</fieldset>
-					<fieldset>
-						<legend>Informa√ß√µes pessoais</legend>
-						<label for="nome">Nome:</label>
-						<input type="text" id="nome" name="usuario.nome" />
-						<label for="email">Email:</label> 
-					 	<input type="text" id="email" name="usuario.email" />
-						<label for="aniversario">Data de nascimento:</label> 
-						<input type="text" id="aniversario" name="usuario.aniversario" />
-						<label for="endereco">Endere√ßo:</label> 
-						<input type="text" id="endereco" name="usuario.endereco" />
-						<label for="telefone">Telefone:</label>
-						<input type="text" id="telefone" name="usuario.telefone" />
-						<label for="celular">Celular:</label>
-						<input type="text" id="celular" name="usuario.celular" />
-						<label for="descricao">Descri√ß√£o:</label>
-						<textarea id="descricao" name="usuario.descricao" rows="5" cols="60"></textarea>
-					</fieldset>
-					<input type="submit" id="cadastrar" value="Cadastrar" style="margin-top:10px;" />
-				</form>
-				<script type="text/javascript">
-					$("#formulario").formToWizard({ submitButton: 'cadastrar' });
-				</script>
-			</div>
-			<br/>
 		</div>
-	</div>
-	<div id="rodape">
-		TESTE NOME DE USU√ÅRIO - YOULEARN - O SEU SISTEMA DE ENSINO!
-	</div>
-</body>
-</html>
+	</c:if>
+	<form action="<c:url value="/adm/usuarios/novo"/>" id="formulario" method="POST">
+		<fieldset>
+			<legend>Cadastro de usu·rio</legend>
+			<label for="login">Login:</label>
+			<input type="text" id="login" name="usuario.login" />
+			<label for="senha">Senha:</label>
+			<input type="password" id="senha" name="usuario.senha" />
+			<label for="perfil">Perfil:</label>
+			<select id="perfil" name="usuario.perfil">
+				<option selected value="aluno">Aluno</option>
+				<option value="administrador">Administrador</option>
+			</select>
+		</fieldset>
+		<fieldset>
+			<legend>InformaÁıes pessoais</legend>
+			<label for="nome">Nome:</label>
+			<input type="text" id="nome" name="usuario.nome" />
+			<label for="email">Email:</label> 
+		 	<input type="text" id="email" name="usuario.email" />
+			<label for="aniversario">Data de nascimento:</label> 
+			<input type="text" id="aniversario" name="usuario.aniversario" />
+			<label for="endereco">EndereÁo:</label> 
+			<input type="text" id="endereco" name="usuario.endereco" />
+			<label for="telefone">Telefone:</label>
+			<input type="text" id="telefone" name="usuario.telefone" />
+			<label for="celular">Celular:</label>
+			<input type="text" id="celular" name="usuario.celular" />
+			<label for="descricao">DescriÁ„o:</label>
+			<textarea id="descricao" name="usuario.descricao" rows="5" cols="60"></textarea>
+		</fieldset>
+		<input type="submit" id="cadastrar" value="Cadastrar" style="margin-top:10px;" />
+	</form>
+	<script type="text/javascript">
+		$("#formulario").formToWizard({ submitButton: 'cadastrar' });
+	</script>
+<%@ include file="../commons/footerProfile.jsp" %>
