@@ -5,7 +5,7 @@ body { padding:10px 0 28px 0; background:url('../imgs/fundo2.jpg'); background-a
 h1 { font-size:24px; }
 h2 { font-size:20px; }
 h3 { font-size:16px; }
-
+img { border:none; }
 input, textarea, select { color:black; padding:3px; }
 input[type=text], input[type=password], textarea { border:1px solid #000; }
 p { margin-top:10px; }
