@@ -36,11 +36,11 @@ table.dataTable td {
 }
 
 table.dataTable tr.odd {
-	background-color: #E2E4FF;
+	background-color: #87CEFA;
 }
 
 table.dataTable tr.even {
-	background-color: white;
+	background-color: #ADD8E6;
 }
 
 .paginate_button, .paginate_active { 
@@ -52,12 +52,18 @@ table.dataTable tr.even {
 	border-radius:3px; 
 	-moz-border-radius: 3px; 
 	-webkit-border-radius: 3px;
+	color:black;
 }
-.paginate_active { border:1px solid black; font-weight:bold; }
-#tabela_paginate span.paginate_button:hover { background-color:#ECFFB3; }
+.paginate_active { border:1px solid black; font-weight:bold; background-color:#B0C4DE; }
+#tabela_paginate span.paginate_button:hover { background-color:#B0C4DE; }
 
 #tabela tbody tr:hover, #tabela tbody tr td.highlighted {
-	background-color: #ECFFB3;
+	background-color: #B0C4DE;
 	cursor: pointer; 
 	* cursor: hand;
 }
+
+#tabela tbody tr, 
+#tabela tbody tr td, 
+#tabela thead tr, 
+#tabela thead tr th { color:black; text-align:center; }

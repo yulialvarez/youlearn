@@ -7,12 +7,13 @@
 		<table id="tabela" class="dataTable">
 			<thead>
 				<tr>
-					<th>Id</th>
+					<th>ID</th>
 					<th>Nome</th>
 					<th>Login</th>
 					<th>E-mail</th>
 					<th>Criado em</th>
 					<th>Perfil</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -25,6 +26,7 @@
 						<td>${users.email }</td>
 						<td>${users.dataCriacao }</td>
 						<td>${users.perfil }</td>
+						<td style="white-space:nowrap;"><a href="<c:url value="/adm/usuarios/${users.id }/editar"/>"><img src="<c:url value="/imgs/editar.gif"/>" alt="Editar" /></a> <a href="<c:url value="/adm/usuarios/${users.id }/excluir"/>"><img src="<c:url value="/imgs/excluir.gif"/>" alt="Excluir" /></a></td>
 					</tr>
 				</c:forEach>
 		
