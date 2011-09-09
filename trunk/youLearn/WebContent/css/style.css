@@ -1,26 +1,16 @@
-* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:white; }
+* { margin:0; padding:0; font-size:13px; font-family:Arial, Tahoma, Verdana, sans-serif; color:black; }
 a { text-decoration:none; color:#1E5395; }
 a:hover { text-decoration:underline; }
 body { padding:10px 0 28px 0; background:url('../imgs/fundo2.jpg'); background-attachment:fixed; }
-h1 { font-size:24px; }
-h2 { font-size:20px; }
-h3 { font-size:16px; }
+h1 { font-size:26px; }
+h2 { font-size:22px; }
+h3 { font-size:18px; }
 img { border:none; }
 input, textarea, select { color:black; padding:3px; }
 input[type=text], input[type=password], textarea { border:1px solid #000; }
 p { margin-top:10px; }
 
-h2.nome { 
-	font-weight:bold; 
-	padding:5px; 
-	margin-left:-10px; 
-	margin-right:-15px;
-	width:300px; 
-	background-color:black; 
-	text-align:center; 
-	position:relative;
-}
-
+/* DEFINIÇÃO DA ESTRUTURA */
 #wrapper { width:auto; margin:0 auto; }
 
 #topo { width:96%; text-align:left; margin:0px auto; }
@@ -30,8 +20,7 @@ h2.nome {
 	margin:0px auto; 
 	padding:10px 10px 0 10px;
 	border:1px dotted black; 
-	border-top:none; 
-	background:url("../imgs/fundo.png");
+	background:url('../imgs/fundo.png');
 }
 #rodape {
 	position:fixed; 
@@ -57,8 +46,46 @@ h2.nome {
 	margin-right:10px;	
 	min-height:300px;
 }
+#sobre-atual p, #sobre-atual b, #sobre-atual b u { color: white; }
 #conteudo { float:left; padding:10px; }
 
+/* MENSAGENS */
+.messagebox{
+	border:1px solid #c93;
+	background:url("../imgs/alerta.png") no-repeat left;
+	background-color:#ffc;
+	padding:3px 3px 3px 23px;
+	margin-top:10px;
+	color:#708090;
+}
+.messageboxok{
+	border:1px solid #349534;
+	background:url("../imgs/certo.gif") no-repeat left;
+	background-color:#C9FFCA;
+	padding:3px 3px 3px 23px;
+	font-weight:bold;
+	color:#008000;
+	margin-top:10px;
+}
+.messageboxerror{
+	border:1px solid #CC0000;
+	background:url("../imgs/erro.png") no-repeat left;
+	background-color:#F7CBCA;
+	padding:3px 3px 3px 23px;
+	font-weight:bold;
+	color:#CC0000;
+	margin-right: 0px;
+	margin-top:10px;
+}
+.messageboxinfo{
+	border:1px solid #1E5395;
+	background:url("../imgs/info.png") no-repeat left;
+	background-color:#B0C4DE;
+	padding:3px 3px 3px 23px;
+	font-weight:bold;
+	color:#1E5395;
+	margin-top:10px;
+}
 
 /* MENU */
 #nav, #nav ul { /* all lists */
@@ -101,14 +128,27 @@ h2.nome {
 	left: auto;
 }
 
-/* ESTILIZACAO DE FORMULARIO PARA CADASTRO E EDIÃ‡ÃƒO */
+/* ESTILIZACAO DE FORMULARIO PARA CADASTRO E EDIÇÃO */
 fieldset { border:none; }
-legend { font-size:18px; margin:0px; padding:10px 0px; color:#fff; font-weight:bold;}
+legend { font-size:18px; margin:0px; padding:10px 0px; color:#1E5395; font-weight:bold;}
 label { display:block; margin:15px 0 5px;}
 input[type=text], textarea { padding:3px; border:1px solid #000; }
 a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff; text-decoration:none; margin:0 5px 0 0; line-height:23px; }
-.prev:hover, .next:hover { background-color:#000; text-decoration:none;}
+.prev:hover, .next:hover { background-color:#B0C4DE; text-decoration:none;}
 #steps { list-style:none; width:100%; overflow:hidden; margin:0px; padding:0px;}
 #steps li {font-size:24px; float:left; padding:10px; color:white; background-color:#c1c1c1; margin:10px 5px 0 0;}
 #steps li span {font-size:11px; display:block;}
 #steps li.current, #steps li.current > span { color:#1E5395; font-weight:bold; }
+
+
+h2.nome { 
+	font-weight:bold; 
+	padding:5px; 
+	margin-left:-10px; 
+	margin-right:-15px;
+	width:300px; 
+	background-color:black;
+	text-align:center; 
+	position:relative;
+	color:white;
+}

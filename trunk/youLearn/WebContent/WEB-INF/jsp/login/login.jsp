@@ -40,13 +40,26 @@
 	h3 { font-size:24px; margin-bottom:10px; }
 	p { margin-bottom:10px; }
 	
+	.messageboxinfo{
+		position:absolute;
+		z-index:40;
+		width:170px;
+		border:1px solid #1E5395;
+		background:url("<c:url value="/imgs/info.png"/>") no-repeat left;
+		background-color:#B0C4DE;
+		padding:3px 3px 3px 18px;
+		font-weight:bold;
+		color:#1E5395;
+		margin-top:10px;
+	}
 	.messagebox{
 		position:absolute;
 		z-index:30;
 		width:170px;
 		border:1px solid #c93;
-		background:#ffc;
-		padding:3px;
+		background:url("<c:url value="/imgs/alerta.png"/>") no-repeat left;
+		background-color:#ffc;
+		padding:3px 3px 3px 18px;
 		margin-top:10px;
 		color:#708090;
 	}
@@ -55,8 +68,9 @@
 		z-index:40;
 		width:170px;
 		border:1px solid #349534;
-		background:#C9FFCA;
-		padding:3px;
+		background:url("<c:url value="/imgs/certo.gif"/>") no-repeat left;
+		background-color:#C9FFCA;
+		padding:3px 3px 3px 18px;
 		font-weight:bold;
 		color:#008000;
 		margin-top:10px;
@@ -66,8 +80,9 @@
 		z-index:50;
 		width:170px;
 		border:1px solid #CC0000;
-		background:#F7CBCA;
-		padding:3px;
+		background:url("<c:url value="/imgs/erro.png"/>") no-repeat left;
+		background-color:#F7CBCA;
+		padding:3px 3px 3px 18px;
 		font-weight:bold;
 		color:#CC0000;
 		margin-right: 0px;
@@ -93,7 +108,7 @@
 				<input type="text" class="campo" id="usuario" name="usuario.login" /><br/>
 				<input type="password" class="campo" id="senha" name="usuario.senha" /><br/>
 				<div id="msgs">
-					<span id="msgbox" class="messagebox">Entre com usuário/senha...</span>
+					<span id="msgbox" class="messageboxinfo">Entre com usuário/senha...</span>
 				</div>
 				<input type="submit" class="submit" value="Entrar"/>
 			</form>
@@ -107,7 +122,7 @@
 		jQuery(function($){
 		     $("#loginForm").submit(function() {
 		          $("#msgbox").removeClass()
-		               .addClass('messagebox')
+		               .addClass('messageboxinfo')
 		                    .text('Validando dados...')
 		                         .fadeIn(2000);
 		 

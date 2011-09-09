@@ -43,14 +43,14 @@
 						<li class="subs">
 							<a href="#">Usuários</a>
 							<ul>
-								<li><a href="#">Adicionar usuário</a></li>
-								<li><a href="#">Listar usuários</a></li>
+								<li><a href="<c:url value="/adm/usuarios/novo"/>">Adicionar usuário</a></li>
+								<li><a href="<c:url value="/adm/usuarios/lista"/>">Listar usuários</a></li>
 							</ul>
 						</li>
 						<li><a href="#">Status</a></li>
 					</ul>
 				</li>
-				<li><a href="#">Início</a></li>
+				<li><a href="<c:url value="/inicio"/>">Início</a></li>
 				<li class="submenu">
 					<a href="#">Minha central</a>
 					<ul>

@@ -11,23 +11,29 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.view.Results;
 import br.com.youlearn.dao.UsuarioDao;
+import br.com.youlearn.interceptor.Publico;
 import br.com.youlearn.modelo.Usuario;
+import br.com.youlearn.modelo.UsuarioWeb;
 
 @Resource
 public class LoginController {
 	
 	private final UsuarioDao userDao;
 	private final Result result;
+	private final UsuarioWeb usuarioWeb;
 	
-	public LoginController(UsuarioDao userDao, Result result) {
+	public LoginController(UsuarioDao userDao, Result result, UsuarioWeb usuarioWeb) {
 		this.userDao = userDao;
 		this.result = result;
+		this.usuarioWeb = usuarioWeb;
 	}
 
+	@Publico
 	@Get @Path("/")
 	public void login() {
 	}
 	
+	@Publico
 	@Post @Path("/login")
 	public void login(Usuario usuario) {
 		
@@ -48,7 +54,7 @@ public class LoginController {
 		String retorno = "false";
 		if (carregado != null) {
 			retorno="true";
-			//usuarioWeb.login(carregado);
+			usuarioWeb.login(carregado);
 		}
 		result.use(Results.json()).from(retorno).serialize();
 	}

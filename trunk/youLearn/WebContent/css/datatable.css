@@ -36,11 +36,11 @@ table.dataTable td {
 }
 
 table.dataTable tr.odd {
-	background-color: #87CEFA;
+	background-color: #DAF0F7;
 }
 
 table.dataTable tr.even {
-	background-color: #ADD8E6;
+	background-color: #C3E2EC;
 }
 
 .paginate_button, .paginate_active { 

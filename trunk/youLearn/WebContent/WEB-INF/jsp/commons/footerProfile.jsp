@@ -3,7 +3,7 @@
 		</div>
 	</div>
 	<div id="rodape">
-		TESTE NOME DE USUÁRIO - YOULEARN - O SEU SISTEMA DE ENSINO!
+		Logado como ${usuarioWeb.usuario.nome } - youLearn! - Sharing skills!
 	</div>
 </body>
 </html>
