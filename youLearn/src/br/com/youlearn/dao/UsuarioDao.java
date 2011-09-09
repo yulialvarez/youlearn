@@ -38,4 +38,8 @@ public class UsuarioDao {
 	public List<Usuario> listaTodos() {
 		return session.createCriteria(Usuario.class).list();
 	}
+
+	public void refresh(Usuario usuario) {
+		session.refresh(usuario);
+	}
 }

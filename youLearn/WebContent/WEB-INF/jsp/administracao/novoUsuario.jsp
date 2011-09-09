@@ -4,17 +4,15 @@
 	<p>Com este cadastro, o usuário poderá acessar e realizar qualquer curso disponibilizado no sistema.<br/>
 	O acesso administrador dará opções para cadastrar/editar/deletar usuários e cursos (e respectivas disciplinas), como também acesso a todas informações e configurações do sistema e status.</p>
 	<c:if test="${not empty sucesso}">
-		<div id="notice">
+		<div id="notice" class="messageboxok">
 			<p>${sucesso }</p>
 		</div>
 	</c:if>
 	<c:if test="${not empty errors}">
-		<div id="errors">
-			<ul>
-				<c:forEach items="${errors }" var="error">
-					<li>${error.category } - ${error.message }</li>
-				</c:forEach>
-			</ul>
+		<div id="errors" class="messageboxerror">
+			<c:forEach items="${errors }" var="error">
+				${error.message }
+			</c:forEach>
 		</div>
 	</c:if>
 	<form action="<c:url value="/adm/usuarios/novo"/>" id="formulario" method="POST">

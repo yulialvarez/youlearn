@@ -11,21 +11,29 @@
 					<th>Nome</th>
 					<th>Login</th>
 					<th>E-mail</th>
-					<th>Criado em</th>
 					<th>Perfil</th>
+					<th>Criado em</th>
 					<th></th>
 				</tr>
 			</thead>
 			<tbody>
-		
 				<c:forEach items="${lista }" var="users">
-					<tr style="padding:10px">
+					<tr style="padding:10px" onClick="alert('teste ${users.id }')">
 						<td>${users.id }</td>
 						<td>${users.nome }</td>
 						<td>${users.login }</td>
 						<td>${users.email }</td>
-						<td>${users.dataCriacao }</td>
-						<td>${users.perfil }</td>
+						<td>
+							<c:if test="${users.perfil == 'aluno'}">
+								Aluno
+							</c:if>
+							<c:if test="${users.perfil == 'administrador'}">
+								Administrador
+							</c:if>
+						</td>
+						<td>
+							<fmt:formatDate value="${users.dataCriacao}" type="date" pattern="dd/MM/yyyy"/>
+						</td>
 						<td style="white-space:nowrap;"><a href="<c:url value="/adm/usuarios/${users.id }/editar"/>"><img src="<c:url value="/imgs/editar.gif"/>" alt="Editar" /></a> <a href="<c:url value="/adm/usuarios/${users.id }/excluir"/>"><img src="<c:url value="/imgs/excluir.gif"/>" alt="Excluir" /></a></td>
 					</tr>
 				</c:forEach>
@@ -45,7 +53,7 @@
 					"sInfoEmpty":    "Mostrando de 0 até 0 de 0 registros",
 					"sInfoFiltered": "(filtrado de _MAX_ registros no total)",
 					"sInfoPostFix":  "",
-					"sSearch":       "Buscar:",
+					"sSearch":       "Buscar usuário:",
 					"sUrl":          "",
 					"oPaginate": {
 						"sFirst":    "Primeiro",
