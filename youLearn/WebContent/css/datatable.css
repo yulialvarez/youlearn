@@ -57,11 +57,7 @@ table.dataTable tr.even {
 .paginate_active { border:1px solid black; font-weight:bold; background-color:#B0C4DE; }
 #tabela_paginate span.paginate_button:hover { background-color:#B0C4DE; }
 
-#tabela tbody tr:hover, #tabela tbody tr td.highlighted {
-	background-color: #B0C4DE;
-	cursor: pointer; 
-	* cursor: hand;
-}
+#tabela tbody tr:hover, #tabela tbody tr td.highlighted { background-color: #B0C4DE; }
 
 #tabela tbody tr, 
 #tabela tbody tr td, 

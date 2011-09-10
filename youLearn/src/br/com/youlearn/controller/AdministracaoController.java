@@ -33,7 +33,6 @@ public class AdministracaoController {
 	@Get @Path("/adm/usuarios/novo")
 	public void novoUsuario() {
 	}
-	
 	@Post @Path("/adm/usuarios/novo")
 	public void novoUser(Usuario usuario) {
 		
@@ -78,5 +77,20 @@ public class AdministracaoController {
 		}
 		
 		result.include("lista", usuarios);
+	}
+	
+	@Get @Path("/adm/usuarios/{usuario.id}/visualizar")
+	public void visualizaUsuario(Usuario usuario) {
+		result.include("usuario", userDao.carregaPorId(usuario));
+	}
+	
+	@Get @Path("/adm/usuarios/{usuario.id}/editar")
+	public void editaUsuario(Usuario usuario) {
+		result.include("usuario", userDao.carregaPorId(usuario));
+	}
+	
+	@Get @Path("/adm/usuarios/{usuario.id}/excluir")
+	public void deletaUsuario(Usuario usuario) {
+		
 	}
 }

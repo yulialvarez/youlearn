@@ -34,6 +34,10 @@ public class UsuarioDao {
 															  .uniqueResult();
 	}
 	
+	public Usuario carregaPorId(Usuario usuario) {
+		return (Usuario) session.createCriteria(Usuario.class).add(Restrictions.eq("id", usuario.getId())).uniqueResult();
+	}
+	
 	@SuppressWarnings("unchecked")
 	public List<Usuario> listaTodos() {
 		return session.createCriteria(Usuario.class).list();
