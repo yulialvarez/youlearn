@@ -58,4 +58,10 @@ public class LoginController {
 		}
 		result.use(Results.json()).from(retorno).serialize();
 	}
+	
+	@Get @Path("/doLogout")
+	public void logout() {
+		usuarioWeb.logout();
+		result.redirectTo(this).login();
+	}
 }

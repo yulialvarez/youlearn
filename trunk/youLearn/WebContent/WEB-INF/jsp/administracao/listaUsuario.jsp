@@ -1,6 +1,9 @@
 <%@ include file="../commons/headerProfile.jsp" %>
 	<script type="text/javascript" src="<c:url value="/js/jquery.dataTables.js"/>"></script>
 	<link rel="stylesheet" type="text/css" href="<c:url value="/css/datatable.css"/>" media="screen" />
+	
+	<script type="text/javascript" src="<c:url value="/js/jquery.fancybox-1.3.4.js"/>"></script>
+	<link rel="stylesheet" type="text/css" href="<c:url value="/css/jquery.fancybox-1.3.4.css"/>" media="screen" />
 	<h1>Lista de usuários</h1>
 	<p>Nesta lista de usuários, pode-se visualizar, editar e excluir os usuários que possuem cadastro no sistema youLearn!</p>
 	<c:if test="${not empty lista}">
@@ -18,7 +21,7 @@
 			</thead>
 			<tbody>
 				<c:forEach items="${lista }" var="users">
-					<tr style="padding:10px" onClick="alert('teste ${users.id }')">
+					<tr style="padding:10px">
 						<td>${users.id }</td>
 						<td>${users.nome }</td>
 						<td>${users.login }</td>
@@ -34,7 +37,11 @@
 						<td>
 							<fmt:formatDate value="${users.dataCriacao}" type="date" pattern="dd/MM/yyyy"/>
 						</td>
-						<td style="white-space:nowrap;"><a href="<c:url value="/adm/usuarios/${users.id }/editar"/>"><img src="<c:url value="/imgs/editar.gif"/>" alt="Editar" /></a> <a href="<c:url value="/adm/usuarios/${users.id }/excluir"/>"><img src="<c:url value="/imgs/excluir.gif"/>" alt="Excluir" /></a></td>
+						<td style="white-space:nowrap;">
+							<a href="<c:url value="/adm/usuarios/${users.id }/visualizar"/>" id="inline"><img src="<c:url value="/imgs/visualizar.gif"/>" alt="Visualizar" /></a>
+							<a href="<c:url value="/adm/usuarios/${users.id }/editar"/>"><img src="<c:url value="/imgs/editar.gif"/>" alt="Editar" /></a> 
+							<a href="<c:url value="/adm/usuarios/${users.id }/excluir"/>"><img src="<c:url value="/imgs/excluir.gif"/>" alt="Excluir" /></a>
+						</td>
 					</tr>
 				</c:forEach>
 		
@@ -62,6 +69,15 @@
 						"sLast":     "Último"
 					}
 				}
+			});
+			
+			$("a#inline").fancybox({
+				'hideOnContentClick': false,
+				'transitionIn'	:	'fade',
+				'transitionOut'	:	'fade',
+				'speedIn'		:	600, 
+				'speedOut'		:	200, 
+				'overlayShow'	:	true
 			});
 		});
 	</script>
