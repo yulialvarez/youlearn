@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+    pageEncoding="ISO-8859-1"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
@@ -22,8 +22,8 @@
 		<div style="clear:both"></div>
 		<div id="principal-meio">
 			<div id="sobre-atual">
-				<img src="<c:url value="/imgs/foto.jpg"/>" alt="Usu√°rio" width="280px" height="280px" />
-				<h2 class="nome">Vin√≠cius Marcus Michelutti</h2>
+				<img src="<c:url value="/imgs/foto.jpg"/>" alt="Usu·rio" width="280px" height="280px" />
+				<h2 class="nome">VinÌcius Marcus Michelutti</h2>
 				<p><b>De<u>:</u></b> Joinville</p>
 				<p><b>Idade<u>:</u></b> 18 anos</p>
 				<p><b>Cursos completos<u>:</u></b> 5</p>
@@ -31,7 +31,7 @@
 			
 			<ul id="nav">
 				<li class="submenu">
-					<a href="#">Administra√ß√£o</a>
+					<a href="#">AdministraÁ„o</a>
 					<ul>
 						<li class="subs">
 							<a href="#" >Cursos</a>
@@ -41,16 +41,16 @@
 							</ul>
 						</li>
 						<li class="subs">
-							<a href="#">Usu√°rios</a>
+							<a href="#">Usu·rios</a>
 							<ul>
-								<li><a href="<c:url value="/adm/usuarios/novo"/>">Adicionar usu√°rio</a></li>
-								<li><a href="<c:url value="/adm/usuarios/lista"/>">Listar usu√°rios</a></li>
+								<li><a href="<c:url value="/adm/usuarios/novo"/>">Adicionar usu·rio</a></li>
+								<li><a href="<c:url value="/adm/usuarios/lista"/>">Listar usu·rios</a></li>
 							</ul>
 						</li>
 						<li><a href="#">Status</a></li>
 					</ul>
 				</li>
-				<li><a href="<c:url value="/inicio"/>">In√≠cio</a></li>
+				<li><a href="<c:url value="/inicio"/>">InÌcio</a></li>
 				<li class="submenu">
 					<a href="#">Minha central</a>
 					<ul>
@@ -58,10 +58,10 @@
 							<a href="#">Meus Cursos</a>
 							<ul>
 								<li><a href="#">Em andamento</a></li>
-								<li><a href="#">Certifica√ß√µes</a></li>
+								<li><a href="#">CertificaÁıes</a></li>
 							</ul>
 						</li>
-						<li><a href="#">Editar informa√ß√µes</a></li>
+						<li><a href="#">Editar informaÁıes</a></li>
 					</ul>
 				</li>
 				<li><a href="#">Cursos</a></li>
