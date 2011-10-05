@@ -1,14 +1,14 @@
 * { margin:0; padding:0; font-size:13px; font-family:'Trebuchet MS', Arial, Tahoma, Verdana, sans-serif; color:black; }
 a { text-decoration:none; color:#1E5395; }
 a:hover { text-decoration:underline; }
-body { padding:10px 0 28px 0; background:url('../imgs/fundo2.jpg'); background-attachment:fixed; }
+body { padding:10px 0 28px 0; background:url('../imgs/bg.gif') repeat-x scroll center top #DAE7EC; }
 h1 { font-size:26px; }
 h2 { font-size:22px; }
 h3 { font-size:18px; }
 img { border:none; }
 input, textarea, select { color:black; padding:3px; }
 input[type=text], input[type=password], textarea { border:1px solid #000; }
-p { margin-top:10px; }
+p { margin-top:10px; line-height: 20px;}
 
 /* DEFINIÇÃO DA ESTRUTURA */
 #wrapper { width:auto; margin:0 auto; }
@@ -63,7 +63,6 @@ p { margin-top:10px; }
 	background:url("../imgs/certo.gif") no-repeat 4px 50%;
 	background-color:#C9FFCA;
 	padding:3px 3px 3px 23px;
-	font-weight:bold;
 	color:#008000;
 	margin-top:10px;
 }
@@ -72,7 +71,6 @@ p { margin-top:10px; }
 	background:url("../imgs/erro.png") no-repeat 4px 50%;
 	background-color:#F7CBCA;
 	padding:3px 3px 3px 23px;
-	font-weight:bold;
 	color:#CC0000;
 	margin-right: 0px;
 	margin-top:10px;
@@ -82,7 +80,6 @@ p { margin-top:10px; }
 	background:url("../imgs/info.png") no-repeat 4px 50%;
 	background-color:#B0C4DE;
 	padding:3px 3px 3px 23px;
-	font-weight:bold;
 	color:#1E5395;
 	margin-top:10px;
 }

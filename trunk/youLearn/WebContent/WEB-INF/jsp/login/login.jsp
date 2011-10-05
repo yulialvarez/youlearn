@@ -12,7 +12,7 @@
 
 <style type="text/css">
 	* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:#004A77; }
-	body { background:white url('<c:url value="/imgs/fundo2.jpg"/>') no-repeat right top; }
+	body { background:url('<c:url value="/imgs/bg.gif"/>') repeat-x scroll center top #DAE7EC; }
 	#boxLogin {
 		width:560px;
 		height:230px;
@@ -48,7 +48,6 @@
 		background:url("<c:url value="/imgs/info.png"/>") no-repeat 4px 50%;
 		background-color:#B0C4DE;
 		padding:3px 3px 3px 22px;
-		font-weight:bold;
 		color:#1E5395;
 		margin-top:10px;
 	}
@@ -71,7 +70,6 @@
 		background:url("<c:url value="/imgs/certo.gif"/>") no-repeat 4px 50%;
 		background-color:#C9FFCA;
 		padding:3px 3px 3px 22px;
-		font-weight:bold;
 		color:#008000;
 		margin-top:10px;
 	}
@@ -83,7 +81,6 @@
 		background:url("<c:url value="/imgs/erro.png"/>") no-repeat 4px 50%;
 		background-color:#F7CBCA;
 		padding:3px 3px 3px 22px;
-		font-weight:bold;
 		color:#CC0000;
 		margin-right: 0px;
 		margin-top:10px;
