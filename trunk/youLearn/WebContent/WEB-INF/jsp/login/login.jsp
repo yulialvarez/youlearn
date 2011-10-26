@@ -14,23 +14,26 @@
 	* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:#004A77; }
 	body { background:url('<c:url value="/imgs/bg.gif"/>') repeat-x scroll center top #DAE7EC; }
 	#boxLogin {
-		width:560px;
-		height:230px;
+		width:691px;
+		height:407px;
 		position:absolute;
 		top: 50%;
 		left: 50%;
-		margin: -115px 0 0 -280px;
+		margin: -204px 0 0 -346px;
 		background:url('<c:url value="/imgs/fundoLogin.png"/>') no-repeat;
+		padding:30px;
 	}
-	#camposLogin, #logoEmpresa { padding:0px 10px; margin:10px 0; width:259px; height:210px; }
-	#logoEmpresa { float:right; text-align:center; border-left:1px dotted red; }
-	#camposLogin { float:left; }
+	#camposLogin, #logoEmpresa { padding:0px 10px; width:259px; height:347px; }
+	#logoEmpresa { float:left; text-align:center; width:370px; border-left:1px dotted #ccc; }
+	#logoEmpresa img { margin-top:60px; }
+	#camposLogin { float:left; margin-top:60px;}
 	#camposLogin input.campo {
 		padding:5px;
 		margin:5px 0;
 		width:239px;
 		color:#ccc;
 	}
+	#footer { text-align:center; position:absolute; top:50%; left:50%; width:691px; margin:214px 0 0 -346px; }
 	.esqueciSenha, .submit {
 		padding:5px;
 		margin:5px 0;
@@ -114,7 +117,7 @@
 			<img src="<c:url value="/imgs/logo.png"/>" width="263px" height="210px"/>
 		 </div>
 	</div>
-	
+	<div id="footer">Desenvolvido por Vinícius Marcus Michelutti - ECP 341</div>
 	<script type="text/javascript">
 		jQuery(function($){
 		     $("#loginForm").submit(function() {
