@@ -29,6 +29,38 @@
 		</div>
 		<div class="setenta left" id="featured" style="margin:10px 0px; text-align:center">
 			<h2 style="text-align:left">Painel de controle</h2>
+			
+			<ul class="ca-menu">
+            	<li>
+                       <a href="#">
+                           <span class="ca-icon">p</span>
+                           <div class="ca-content">
+                               <h4 class="ca-main">Meus Cursos</h4>
+                               <h5 class="ca-sub">Cursos em andamento</h5>
+                           </div>
+                       </a>
+                   </li>
+                   <li>
+                       <a href="#">
+                           <span class="ca-icon">S</span>
+                           <div class="ca-content">
+                               <h4 class="ca-main">Editar informações</h4>
+                               <h5 class="ca-sub">Minhas informações</h5>
+                           </div>
+                       </a>
+                   </li>
+                   <li>
+                       <a href="#">
+                           <span class="ca-icon" id="heart">R</span>
+                           <div class="ca-content">
+                               <h4 class="ca-main">Melhorias</h4>
+                               <h5 class="ca-sub">Sugerir/visualizar melhorias</h5>
+                           </div>
+                       </a>
+                   </li>
+               </ul>
+
+
 		</div>
 	</div>
 <%@ include file="../commons/footerProfile.jsp" %>
