@@ -11,113 +11,166 @@
 <script type="text/javascript" src="<c:url value="/js/puts.js"/>"></script>
 
 <style type="text/css">
-	* { margin:0; padding:0; font-size:12px; font-family:Tahoma, Verdana, sans-serif; color:#004A77; }
-	body { background:url('<c:url value="/imgs/bg.gif"/>') repeat-x scroll center top #DAE7EC; }
-	#boxLogin {
-		width:691px;
-		height:407px;
-		position:absolute;
-		top: 50%;
-		left: 50%;
-		margin: -204px 0 0 -346px;
-		background:url('<c:url value="/imgs/fundoLogin.png"/>') no-repeat;
-		padding:30px;
-	}
-	#camposLogin, #logoEmpresa { padding:0px 10px; width:259px; height:347px; }
-	#logoEmpresa { float:left; text-align:center; width:370px; border-left:1px dotted #ccc; }
-	#logoEmpresa img { margin-top:60px; }
-	#camposLogin { float:left; margin-top:60px;}
-	#camposLogin input.campo {
-		padding:5px;
-		margin:5px 0;
-		width:239px;
-		color:#ccc;
-	}
-	#footer { text-align:center; position:absolute; top:50%; left:50%; width:691px; margin:214px 0 0 -346px; }
-	.esqueciSenha, .submit {
-		padding:5px;
-		margin:5px 0;
-	}
-	.submit { float:right; }
+body {
+	margin: 0 auto;
+	width: 1000px;
+	background: #eaeaea;
+	color: #282828;
+	font: 12px/20px Arial, Helvetica Neue, Helvetica, sans-serif;
+}
+label {	cursor: pointer; }
+img { border:none; }
 
-	h3 { font-size:24px; margin-bottom:10px; }
-	p { margin-bottom:10px; }
+.clear {
+	display: block;
+	clear: both;
+	width: 0px;
+	height: 0px;
+	overflow: hidden;
+	font-size: 1px;
+}
+
+input[type=text], input[type=password] {
+	padding: 7px;
+	width: 732px;
+	background: #eaeaea;
+	border: 1px solid #8c8c8c;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+input[type=text]:hover, input[type=text]:focus, input[type=password]:hover, input[type=password]:focus {
+	background: #efefef;
+}
+input[type=button], input[type=submit], input[type=reset] {
+	margin: 8px 2px 0 0;
+	padding: 0 15px;
+	text-transform: uppercase;
+	height: 28px;
+	color: #fff;
+	font-weight: bold;
+	cursor: pointer;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+}
+.messageboxinfo{
+	position:absolute;
+	z-index:40;
+	width:229px;
+	border:1px solid #1E5395;
+	background:url("<c:url value="/imgs/info.png"/>") no-repeat 4px 50%;
+	background-color:#B0C4DE;
+	padding:3px 3px 3px 22px;
+	color:#1E5395;
+	margin-top:10px;
+}
+.messagebox{
+	position:absolute;
+	z-index:30;
+	width:229px;
+	border:1px solid #c93;
+	background:url("<c:url value="/imgs/alerta.png"/>") no-repeat 4px 50%;
+	background-color:#ffc;
+	padding:3px 3px 3px 22px;
+	margin-top:10px;
+	color:#708090;
+}
+.messageboxok{
+	position:absolute;
+	z-index:40;
+	width:229px;
+	border:1px solid #349534;
+	background:url("<c:url value="/imgs/certo.gif"/>") no-repeat 4px 50%;
+	background-color:#C9FFCA;
+	padding:3px 3px 3px 22px;
+	color:#008000;
+	margin-top:10px;
+}
+.messageboxerror{
+	position:absolute;
+	z-index:50;
+	width:229px;
+	border:1px solid #CC0000;
+	background:url("<c:url value="/imgs/erro.png"/>") no-repeat 4px 50%;
+	background-color:#F7CBCA;
+	padding:3px 3px 3px 22px;
+	color:#CC0000;
+	margin-right: 0px;
+	margin-top:10px;
+}
+#logo { text-align:center; }
+#footer {
+	margin: 25px 0;
+	padding-top: 20px;
+	text-align: right;
+	border-top: 1px solid #ddd;
+}
 	
-	.messageboxinfo{
-		position:absolute;
-		z-index:40;
-		width:170px;
-		border:1px solid #1E5395;
-		background:url("<c:url value="/imgs/info.png"/>") no-repeat 4px 50%;
-		background-color:#B0C4DE;
-		padding:3px 3px 3px 22px;
-		color:#1E5395;
-		margin-top:10px;
-	}
-	.messagebox{
-		position:absolute;
-		z-index:30;
-		width:170px;
-		border:1px solid #c93;
-		background:url("<c:url value="/imgs/alerta.png"/>") no-repeat 4px 50%;
-		background-color:#ffc;
-		padding:3px 3px 3px 22px;
-		margin-top:10px;
-		color:#708090;
-	}
-	.messageboxok{
-		position:absolute;
-		z-index:40;
-		width:170px;
-		border:1px solid #349534;
-		background:url("<c:url value="/imgs/certo.gif"/>") no-repeat 4px 50%;
-		background-color:#C9FFCA;
-		padding:3px 3px 3px 22px;
-		color:#008000;
-		margin-top:10px;
-	}
-	.messageboxerror{
-		position:absolute;
-		z-index:50;
-		width:170px;
-		border:1px solid #CC0000;
-		background:url("<c:url value="/imgs/erro.png"/>") no-repeat 4px 50%;
-		background-color:#F7CBCA;
-		padding:3px 3px 3px 22px;
-		color:#CC0000;
-		margin-right: 0px;
-		margin-top:10px;
-	}
+#login {
+	margin: 20px auto;
+	padding: 25px;
+	width: 255px;
+	background: #fff;
+	border: 7px solid #ccc;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+}
+#login h2 {
+	padding-bottom: 5px;
+	margin-bottom: 20px;
+	font-size: 18px;
+	font-weight: normal;
+	border-bottom: 1px solid #ddd;
+}
+#login label {
+	color: #7a7a7a;
+	font-weight: bold;
+}
+#login input[type=text], #login input[type=password] {
+	margin: 5px 0 10px;
+	width: 241px;
+	background: #f8f8f8;
+	border: 1px solid #aaa;
+}
+#login p {
+	margin: 10px 0 5px;
+}
+#login input[type=submit] {
+	float: right;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bold;
+    font: 12px/20px Arial,Helvetica Neue,Helvetica,sans-serif;
+    height: 28px;
+    margin: 25px 2px 0 0;
+    padding: 0 15px;
+    text-transform: uppercase;
+    background: none repeat scroll 0 0 #3B6B9C;
+   	border: 1px solid #3A6897;
+   	border-radius: 3px 3px 3px 3px;
+}
 </style>
-
-<script>
-	$(document).ready(function() {
-		$("#usuario").puts("Usuário");
-		$("#senha").puts("Senha");
-	});
-	
-</script>
-
 </head>
 <body>
-	<div id="boxLogin">
-		<div id="camposLogin">
-			<h3>Bem vindo,</h3>
-			<p>Digite seus dados para entrar no seu sistema de <b>oportunidades</b>.</p>
-			<form action="#" method="post" id="loginForm">
-				<input type="text" class="campo" id="usuario" name="usuario.login" /><br/>
-				<input type="password" class="campo" id="senha" name="usuario.senha" /><br/>
-				<div id="msgs">
-					<span id="msgbox" class="messageboxinfo">Entre com usuário/senha...</span>
-				</div>
-				<input type="submit" class="submit" value="Entrar"/>
-			</form>
-		</div>
-		<div id="logoEmpresa">
-			<img src="<c:url value="/imgs/logo.png"/>" width="263px" height="210px"/>
-		 </div>
+	<div id="header">
+		<h1 id="logo"><a href="#" title="youLearn! Sharing skills"><img src="<c:url value="/imgs/logo.png"/>" title="youLearn! Sharing skills" alt="youLearn! Sharing skills" /></a></h1>
 	</div>
-	<div id="footer">Desenvolvido por Vinícius Marcus Michelutti - ECP 341</div>
+	<form action="#" method="post" id="loginForm">
+	<div id="login">
+		<h2>Login</h2>
+		<label for="usuario">Usuário:</label>
+		<input type="text" id="usuario" name="usuario.login" />
+		<label for="senha">Senha:</label>
+		<input type="password" id="senha" name="usuario.senha" />
+		<div id="msgs">
+			<span id="msgbox" class="messageboxinfo">Entre com usuário/senha...</span>
+		</div>
+		<br />
+		<input type="submit" value="Login" />
+		<div class="clear"></div>
+	</div>
+	</form>
+	<div id="footer" class="login-f">&copy; <strong>youLearn</strong> 2011. Vinícius Marcus Michelutti - ECP 341</div>
+	
 	<script type="text/javascript">
 		jQuery(function($){
 		     $("#loginForm").submit(function() {
