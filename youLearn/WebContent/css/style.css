@@ -128,6 +128,8 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
 
 #content #featured img.fotoProfile { max-width: 200px; max-height: 250px; float:center; }
 
+
+/* MENU EM PÉ */
 .ca-menu{
     padding:0;
     margin:20px auto;
@@ -182,6 +184,15 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
     -ms-transition: all 400ms linear;
     transition: all 400ms linear;
 }
+.ca-icon#courses{
+	color: #7FFF00;
+}
+.ca-icon#myinfos{
+	color: #FFA500;
+}
+.ca-icon#suggestions{
+	color: #f7002f;
+}
 .ca-content{
     position: absolute;
     left: 0px;
@@ -216,7 +227,7 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
     transition: all 200ms linear;
 }
 .ca-menu li:hover{
-    background-color: #000;
+	background: #e1f0fa;
     z-index:999;
     -webkit-transform: scale(1.1);  
     -moz-transform: scale(1.1);  
@@ -225,22 +236,122 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
     transform: scale(1.1);  
 }
 .ca-menu li:hover .ca-icon{
-    color: #ccff00;
+	color: #259add;
     font-size: 90px;
     opacity:0.3;
 }
 .ca-menu li:hover .ca-main{
-    color: #ccff00;
+	color:#2676ac;
     -webkit-animation: smallToBig 300ms ease;
     -moz-animation: smallToBig 300ms ease;
     -ms-animation: smallToBig 300ms ease;
 }
 .ca-menu li:hover .ca-sub{
-    color: #ccff00;
     -webkit-animation: moveFromBottom 500ms ease;
     -moz-animation: moveFromBottom 500ms ease;
     -ms-animation: moveFromBottom 500ms ease;
 }
+
+/* MENU HORIZONTAL */
+.ca-menu-h{
+    padding:0;
+    margin:20px auto;
+    width: 100%;
+}
+.ca-menu-h h4 { font-size:14px; }
+.ca-menu-h h5 { font-size:12px; }
+.ca-menu-h li{
+    width: 100%;
+    height: 100px;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    background: #f6f6f6;
+    -webkit-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    -moz-box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    box-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    margin-bottom: 4px;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-menu-h li:last-child{
+    margin-bottom: 0px;
+}
+.ca-menu-h li a{
+    text-align: left;
+    width: 100%;
+    height: 100%;
+    display: block;
+    color: #333;
+    position: relative;
+}
+.ca-icon-h{
+    font-family: 'WebSymbolsRegular', cursive;
+    font-size: 20px;
+    text-shadow: 0px 0px 1px #333;
+    line-height: 90px;
+    position: absolute;
+    width: 90px;
+    left: 20px;
+    text-align: center;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-content-h{
+    position: absolute;
+    left: 120px;
+    width: 270px;
+    height: 60px;
+    top: 5px;
+}
+.ca-main-h{
+    font-size: 30px;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-sub-h{
+    font-size: 14px;
+    color: #666;
+    -webkit-transition: all 300ms linear;
+    -moz-transition: all 300ms linear;
+    -o-transition: all 300ms linear;
+    -ms-transition: all 300ms linear;
+    transition: all 300ms linear;
+}
+.ca-menu-h li:hover{
+    background: #e1f0fa;
+}
+.ca-menu-h li a:hover { text-decoration:none; }
+.ca-menu-h li:hover .ca-icon-h{
+    font-size: 40px;
+    color: #259add;
+    opacity: 0.8;
+    text-shadow: 0px 0px 13px #fff;
+}
+.ca-menu-h li:hover .ca-main-h{
+    opacity: 1;
+    color:#2676ac;
+    -webkit-animation: moveFromTop 300ms ease-in-out;
+    -moz-animation: moveFromTop 300ms ease-in-out;
+    -ms-animation: moveFromTop 300ms ease-in-out;
+}
+.ca-menu-h li:hover .ca-sub-h{
+    opacity: 1;
+    -webkit-animation: moveFromBottom 300ms ease-in-out;
+    -moz-animation: moveFromBottom 300ms ease-in-out;
+    -ms-animation: moveFromBottom 300ms ease-in-out;
+}
+
+/* ANIMACOES DO MENU */
 @-webkit-keyframes smallToBig{
     from {
         -webkit-transform: scale(0.1);
@@ -287,6 +398,36 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
         -ms-transform: translateY(100%);
     }
     to {
+        -ms-transform: translateY(0%);
+    }
+}
+@-webkit-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -webkit-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+@-moz-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -moz-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
+        -moz-transform: translateY(0%);
+    }
+}
+@-ms-keyframes moveFromTop {
+    from {
+        opacity: 0;
+        -ms-transform: translateY(-200%);
+    }
+    to {
+        opacity: 1;
         -ms-transform: translateY(0%);
     }
 }

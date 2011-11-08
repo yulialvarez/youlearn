@@ -15,6 +15,7 @@ import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
 import br.com.youlearn.dao.UsuarioDao;
+import br.com.youlearn.interceptor.Administrador;
 import br.com.youlearn.modelo.Usuario;
 
 @Resource
@@ -30,9 +31,11 @@ public class AdministracaoController {
 		this.result = result;
 	}
 	
+	@Administrador
 	@Get @Path("/adm/usuarios/novo")
 	public void novoUsuario() {
 	}
+	@Administrador
 	@Post @Path("/adm/usuarios/novo")
 	public void novoUser(Usuario usuario) {
 		
@@ -60,6 +63,7 @@ public class AdministracaoController {
 		result.redirectTo(this).novoUsuario();
 	}
 	
+	@Administrador
 	@Get @Path("/adm/usuarios/lista")
 	public void listaUsuario() {
 		List<Usuario> usuarios = new ArrayList<Usuario>();
@@ -79,18 +83,24 @@ public class AdministracaoController {
 		result.include("lista", usuarios);
 	}
 	
+	@Administrador
 	@Get @Path("/adm/usuarios/{usuario.id}/visualizar")
 	public void visualizaUsuario(Usuario usuario) {
 		result.include("usuario", userDao.carregaPorId(usuario));
 	}
 	
+	@Administrador
 	@Get @Path("/adm/usuarios/{usuario.id}/editar")
 	public void editaUsuario(Usuario usuario) {
 		result.include("usuario", userDao.carregaPorId(usuario));
 	}
 	
+	@Administrador
 	@Get @Path("/adm/usuarios/{usuario.id}/excluir")
 	public void deletaUsuario(Usuario usuario) {
+		Usuario user = userDao.carregaPorId(usuario);
+		userDao.remover(user);
 		
+		result.redirectTo(this).listaUsuario();
 	}
 }
