@@ -10,6 +10,7 @@
 <script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/formToWizard.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/puts.js"/>"></script>
+<link rel="shortcut icon" href="<c:url value="/imgs/favicon.png"/>" type="image/png">
 <link rel="stylesheet" type="text/css" href="<c:url value="/css/style.css"/>" media="screen" />
 
 <script>
@@ -50,7 +51,9 @@ $(function() {
 			<li><a href="<c:url value="/inicio"/>">Início</a></li>
 			<li><a>Cursos</a></li>
 			<li><a>Meu Perfil</a></li>
-			<li><a>Administração</a></li>
+			<c:if test="${usuarioWeb.usuario.perfil == 'administrador'}">
+				<li><a href="<c:url value="/adm/usuarios/lista"/>">Administração</a></li>
+			</c:if>
 		</ul>
 		<ul style="float:right; margin-right:25px;">
 			<li><a class="linkBlue">Ajuda</a></li>

@@ -10,6 +10,8 @@
 <script type="text/javascript" src="<c:url value="/js/jquery-1.5.1.js"/>"></script>
 <script type="text/javascript" src="<c:url value="/js/puts.js"/>"></script>
 
+<link rel="shortcut icon" href="<c:url value="/imgs/favicon.png"/>" type="image/png">
+
 <style type="text/css">
 body {
 	margin: 0 auto;
