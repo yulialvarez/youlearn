@@ -10,8 +10,10 @@
 		<property name="show_sql">true</property>
 		<property name="format_sql">true</property>
 		
-		<mapping class="br.com.youlearn.modelo.Usuario" />
-		<mapping class="br.com.youlearn.modelo.Curso" />
+		<mapping class="br.com.youlearn.modelo.Questao" />
 		<mapping class="br.com.youlearn.modelo.Disciplina" />
+		<mapping class="br.com.youlearn.modelo.Curso" />
+		<mapping class="br.com.youlearn.modelo.Usuario" />
+		<mapping class="br.com.youlearn.modelo.CursosUsuario" />
 	</session-factory>
 </hibernate-configuration>
