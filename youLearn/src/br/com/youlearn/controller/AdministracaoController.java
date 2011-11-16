@@ -14,19 +14,23 @@ import br.com.caelum.vraptor.Resource;
 import br.com.caelum.vraptor.Result;
 import br.com.caelum.vraptor.Validator;
 import br.com.caelum.vraptor.validator.ValidationMessage;
+import br.com.youlearn.dao.CursoDao;
 import br.com.youlearn.dao.UsuarioDao;
 import br.com.youlearn.interceptor.Administrador;
+import br.com.youlearn.modelo.Curso;
 import br.com.youlearn.modelo.Usuario;
 
 @Resource
 public class AdministracaoController {
 
 	private final UsuarioDao userDao;
+	private final CursoDao cursoDao;
 	private final Validator validator;
 	private final Result result;
 	
-	public AdministracaoController(UsuarioDao userDao, Validator validator, Result result) {
+	public AdministracaoController(UsuarioDao userDao, CursoDao cursoDao, Validator validator, Result result) {
 		this.userDao = userDao;
+		this.cursoDao = cursoDao;
 		this.validator = validator;
 		this.result = result;
 	}
@@ -102,5 +106,27 @@ public class AdministracaoController {
 		userDao.remover(user);
 		
 		result.redirectTo(this).listaUsuario();
+	}
+	
+	@Administrador
+	@Get @Path("/adm/cursos/novo")
+	public void novoCurso() {
+	}
+	@Administrador
+	@Post @Path("/adm/cursos/novo")
+	public void novoCourse(Curso curso) {
+		if ("".equals(curso.getNome().trim()) || "".equals(curso.getDescricao().trim())) {
+			validator.add(new ValidationMessage("Preencha todos os campos!", "curso.preenchacampos"));
+		}
+		validator.onErrorUsePageOf(this).novoCurso();
+		
+		curso.setDataCriacao(new Date());
+		
+		Long id = cursoDao.adicionar(curso);
+		
+		Curso novo = new Curso();
+		novo.setId(id);
+		
+		result.redirectTo(CursoController.class).curso(novo);
 	}
 }

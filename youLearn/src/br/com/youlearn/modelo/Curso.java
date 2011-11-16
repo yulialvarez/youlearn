@@ -23,6 +23,10 @@ public class Curso {
 	private Date dataCriacao;
 	@OneToMany
 	private List<Disciplina> disciplina;
+	@OneToMany
+	private List<Questao> preTeste;
+	@OneToMany
+	private List<Questao> posTeste;
 	
 	public Long getId() {
 		return id;
@@ -53,5 +57,17 @@ public class Curso {
 	}
 	public List<Disciplina> getDisciplina() {
 		return disciplina;
+	}
+	public void setPreTeste(List<Questao> preTeste) {
+		this.preTeste = preTeste;
+	}
+	public List<Questao> getPreTeste() {
+		return preTeste;
+	}
+	public void setPosTeste(List<Questao> posTeste) {
+		this.posTeste = posTeste;
+	}
+	public List<Questao> getPosTeste() {
+		return posTeste;
 	}
 }

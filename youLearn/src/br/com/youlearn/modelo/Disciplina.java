@@ -5,7 +5,6 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToOne;
 
 import org.hibernate.validator.NotNull;
 
@@ -20,8 +19,6 @@ public class Disciplina {
 	private String descricao;
 	@NotNull
 	private Date dataCriacao;
-	@ManyToOne
-	private Curso curso;
 	
 	public Long getId() {
 		return id;
@@ -47,10 +44,5 @@ public class Disciplina {
 	public void setDataCriacao(Date dataCriacao) {
 		this.dataCriacao = dataCriacao;
 	}
-	public Curso getCurso() {
-		return curso;
-	}
-	public void setCurso(Curso curso) {
-		this.curso = curso;
-	}
+	
 }

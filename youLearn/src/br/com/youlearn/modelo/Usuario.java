@@ -33,8 +33,8 @@ public class Usuario {
 	private String telefone;
 	private String celular;
 	
-	//@OneToMany
-	//private List<CursosUsuario> cursos;
+	@OneToMany
+	private List<CursosUsuario> cursos;
 	
 	public Long getId() {
 		return id;
@@ -107,6 +107,12 @@ public class Usuario {
 	}
 	public String getDescricao() {
 		return descricao;
+	}
+	public void setCursos(List<CursosUsuario> cursos) {
+		this.cursos = cursos;
+	}
+	public List<CursosUsuario> getCursos() {
+		return cursos;
 	}
 	
 }

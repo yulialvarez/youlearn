@@ -27,7 +27,7 @@ public class AdministracaoInterceptor implements Interceptor {
 	public void intercept(InterceptorStack stack, ResourceMethod method,
 			Object resourceInstance) throws InterceptionException {
 		
-		if(usuarioWeb.getUsuario().getPerfil().equals("administrador")) {
+		if(usuarioWeb.getUsuario() != null && usuarioWeb.getUsuario().getPerfil().equals("administrador")) {
 			stack.next(method, resourceInstance);
 		} else {
 			result.redirectTo(InicioController.class).index();

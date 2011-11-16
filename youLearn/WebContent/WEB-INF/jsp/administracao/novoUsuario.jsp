@@ -35,7 +35,7 @@
 				</li>
 				
 				<li>
-					<a href="#">
+					<a href="<c:url value="/adm/cursos/novo"/>">
 						<span class="ca-icon-h">F</span>
 						<div class="ca-content-h">
 							<h4 class="ca-main-h">Cadastrar Cursos</h2>
