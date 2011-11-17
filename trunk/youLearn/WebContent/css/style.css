@@ -2,6 +2,22 @@
 a { text-decoration:none; color:#2A5685; }
 a:hover { text-decoration:underline; }
 
+a.btnLaranja {
+	overflow:visible; /* THANKS FOR I.E. -> without this, text input doesn't padding */
+	padding:5px; 
+	border:1px solid #9A9A9A;
+	background-color:#ffba00;
+	font-size:12px; 
+	font-weight:bold;
+	font-family:Tahoma, Verdana, sans-serif; 
+	color:#616161;
+}
+a.btnLaranja:hover {
+	border:1px solid black;
+	color:black;	
+	text-decoration:none;
+}
+
 @font-face {
     font-family: 'WebSymbolsRegular';
     src: url('websymbols/websymbols-regular-webfont.eot');
@@ -125,7 +141,7 @@ a.prev, a.next { padding:5px 10px 5px 10px; background-color:#1E5395; color:#fff
 #featured { padding:10px 10px 10px 10px; background-color:#f6f6f6; border:1px solid #E4E4E4; }
 #featured li { margin:5px 0; }
 
-#content #featured img.fotoProfile { max-width: 200px; max-height: 250px; float:center; }
+#content #featured img.fotoProfile, #featured img.fotoProfile { max-width: 200px; max-height: 250px; float:center; }
 
 
 /* MENU EM PÉ */
