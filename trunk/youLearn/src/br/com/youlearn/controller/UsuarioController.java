@@ -23,12 +23,18 @@ public class UsuarioController {
 	}
 	
 	@Post @Path("/usuario/{usuario.id}/imagem")
-	public void upload(Usuario usuario, final UploadedFile arquivo) {
+	public void uploadImg(Usuario usuario, final UploadedFile arquivo) {
+		System.out.println("usuario id:" + usuario.getId() + " arq:"+arquivo);
 		imagem.upload(arquivo, usuario);
-		//result.redirectTo(this).usuario(usuario);
+		result.redirectTo(this).editar();
 	}
 	@Get @Path("/usuario/{usuario.id}/imagem")
-	public File download(Usuario usuario) {
+	public File mostraImg(Usuario usuario) {
 		return imagem.mostra(usuario);
 	}
+	
+	@Get @Path("/minhas-infos")
+	public void editar() {
+	}
+	
 }
