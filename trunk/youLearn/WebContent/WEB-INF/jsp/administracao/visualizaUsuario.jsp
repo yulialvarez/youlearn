@@ -10,7 +10,7 @@
 	img.fotoUserVis { float:left; }
 	#visualizar { border:1px solid #ccc; }
 </style>
-<img class="fotoUserVis" src="<c:url value="/imgs/foto.jpg"/>" alt="Usuário" width="280px" height="280px" />
+<img class="fotoUserVis" src="<c:url value="/usuario/${usuario.id }/imagem"/>" alt="Usuário" width="280px" height="280px" />
 <table id="userVis">
 	<tr>
 		<td class="label">Login: </td>

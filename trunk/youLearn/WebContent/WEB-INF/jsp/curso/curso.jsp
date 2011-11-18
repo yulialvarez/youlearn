@@ -8,7 +8,7 @@
 	
 	<div class="trinta right" id="featured" style="margin-bottom:10px; text-align:center">
 		<h2 style="text-align:left">Curso</h2>
-		<img src="<c:url value="/imgs/foto.jpg"/>" alt="Curso" class="fotoProfile"/>
+		<img src="<c:url value="/curso/${curso.id }/imagem"/>" alt="Curso" class="fotoProfile"/>
 		<br/>
 		<c:if test="${usuarioWeb.usuario.perfil == 'administrador'}">
 			<a href="#" style="text-align:center">Editar Curso</a> <b>|</b> 
@@ -20,7 +20,7 @@
 		<ul class="ca-menu-h">
 			<li>
 				<a href="#">
-					<span class="ca-icon-h">³</span>
+					<span class="ca-icon-h">.</span>
 					<div class="ca-content-h">
 						<h4 class="ca-main-h">Matrícula</h2>
 						<h5 class="ca-sub-h">Comece este curso!</h3>
@@ -30,7 +30,7 @@
 			
 			<li>
 				<a href="#">
-					<span class="ca-icon-h">U</span>
+					<span class="ca-icon-h">j</span>
 					<div class="ca-content-h">
 						<h4 class="ca-main-h">Realizar pré-teste</h2>
 						<h5 class="ca-sub-h">Veja seu desempenho!</h3>
