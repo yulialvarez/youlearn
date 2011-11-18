@@ -4,7 +4,7 @@
 		<div class="trinta right" id="featured" style="margin-bottom:10px; text-align:center">
 			<h2 style="text-align:left">Perfil</h2>
 			<img src="<c:url value="/usuario/${usuarioWeb.usuario.id }/imagem"/>" alt="Minha imagem" class="fotoProfile"/>
-			<br/><a href="#" style="text-align:center">Editar Informações</a><br/>
+			<br/><a href="<c:url value="/minhas-infos"/>" style="text-align:center">Editar Informações</a><br/>
 			<p style="text-align:left">
 				<b>Nome: </b>${usuarioWeb.usuario.nome }<br />
 				<b>Perfil: </b>
@@ -48,7 +48,7 @@
                        </a>
                    </li>
                    <li>
-                       <a href="#">
+                       <a href="<c:url value="/minhas-infos"/>">
                            <span class="ca-icon" id="myinfos">S</span>
                            <div class="ca-content">
                                <h4 class="ca-main">Editar informações</h4>

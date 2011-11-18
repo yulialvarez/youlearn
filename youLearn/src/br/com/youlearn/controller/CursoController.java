@@ -33,12 +33,12 @@ public class CursoController {
 	
 	@Administrador
 	@Post @Path("/curso/{curso.id}/imagem")
-	public void upload(Curso curso, final UploadedFile arquivo) {
+	public void uploadImg(Curso curso, final UploadedFile arquivo) {
 		imagem.upload(arquivo, curso);
 		result.redirectTo(this).curso(curso);
 	}
 	@Get @Path("/curso/{curso.id}/imagem")
-	public File download(Curso curso) {
+	public File mostraImg(Curso curso) {
 		return imagem.mostra(curso);
 	}
 	

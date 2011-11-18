@@ -24,7 +24,10 @@ public class ImagemUsuario {
 	}
 	
 	public void upload(UploadedFile file, Usuario usuario) {
+		System.out.println("entrei no upload!");
 		File destino = new File(pastaImagem, usuario.getId() + ".imagem");
+
+		System.out.println("getFile: " + file.getFile() + " destino: " + destino);
 		
 		try {
 			IOUtils.copyLarge(file.getFile(), new FileOutputStream(destino));
