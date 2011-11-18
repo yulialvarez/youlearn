@@ -3,7 +3,7 @@
 	<div id="content">
 		<div class="trinta right" id="featured" style="margin-bottom:10px; text-align:center">
 			<h2 style="text-align:left">Perfil</h2>
-			<img src="<c:url value="/imgs/foto.jpg"/>" alt="Minha imagem" class="fotoProfile"/>
+			<img src="<c:url value="/usuario/${usuarioWeb.usuario.id }/imagem"/>" alt="Minha imagem" class="fotoProfile"/>
 			<br/><a href="#" style="text-align:center">Editar Informações</a><br/>
 			<p style="text-align:left">
 				<b>Nome: </b>${usuarioWeb.usuario.nome }<br />
