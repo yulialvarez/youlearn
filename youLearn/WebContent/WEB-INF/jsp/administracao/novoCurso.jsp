@@ -26,7 +26,7 @@
 				</li>
 				
 				<li>
-					<a href="#">
+					<a href="<c:url value="/cursos"/>">
 						<span class="ca-icon-h">D</span>
 						<div class="ca-content-h">
 							<h4 class="ca-main-h">Listar Cursos</h2>

@@ -5,7 +5,7 @@
 		<h2 style="text-align:left">Menu</h2>
 		<ul class="ca-menu-h">
 			<li>
-				<a href="#">
+				<a href="<c:url value="/meus-cursos"/>">
 					<span class="ca-icon-h">p</span>
 					<div class="ca-content-h">
 						<h4 class="ca-main-h">Meus Cursos</h2>
