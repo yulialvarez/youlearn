@@ -49,7 +49,7 @@ $(function() {
 			<li><a class="top" href="#top"><span></span></a></li>
 			<li><a class="bottom" href="#bottom"><span></span></a></li>
 			<li><a href="<c:url value="/inicio"/>">Início</a></li>
-			<li><a>Cursos</a></li>
+			<li><a href="<c:url value="/cursos"/>">Cursos</a></li>
 			<li><a href="<c:url value="/minhas-infos"/>">Meu Perfil</a></li>
 			<c:if test="${usuarioWeb.usuario.perfil == 'administrador'}">
 				<li><a href="<c:url value="/adm/usuarios/lista"/>">Administração</a></li>

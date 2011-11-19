@@ -25,6 +25,10 @@ public class UsuarioDao {
 		session.delete(usuario);
 	}
 	
+	public void atualiza(Usuario usuario) {
+		session.update(usuario);
+	}
+	
 	public boolean existeUsuario(Usuario usuario) {
 		Usuario encontrado = (Usuario) session.createCriteria(Usuario.class)
 									.add(Restrictions.eq("login", usuario.getLogin()))

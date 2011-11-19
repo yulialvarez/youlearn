@@ -39,7 +39,7 @@
 			
 			<ul class="ca-menu">
             	<li>
-                       <a href="#">
+                       <a href="<c:url value="/meus-cursos"/>">
                            <span class="ca-icon" id="courses">p</span>
                            <div class="ca-content">
                                <h4 class="ca-main">Meus Cursos</h4>
