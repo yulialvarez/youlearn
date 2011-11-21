@@ -73,6 +73,7 @@ public class CursoController {
 	
 	@Get @Path("/cursos")
 	public void lista() {
+		result.include("cursos", cursoDao.listarCursos());
 	}
 	
 	@Get @Path("/curso/{curso.id}/matricula")
