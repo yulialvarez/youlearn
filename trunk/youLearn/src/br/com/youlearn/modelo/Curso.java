@@ -3,6 +3,7 @@ package br.com.youlearn.modelo;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -23,9 +24,9 @@ public class Curso {
 	private Date dataCriacao;
 	@OneToMany
 	private List<Disciplina> disciplina;
-	@OneToMany
+	@OneToMany @Column(columnDefinition="bigint(20) default 0")
 	private List<Questao> preTeste;
-	@OneToMany
+	@OneToMany @Column(columnDefinition="bigint(20) default 0")
 	private List<Questao> posTeste;
 	
 	public Long getId() {
