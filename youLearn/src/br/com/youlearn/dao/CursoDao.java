@@ -21,6 +21,10 @@ public class CursoDao {
 		return (Long) session.save(curso);
 	}
 	
+	public void atualiza(Curso curso) {
+		session.update(curso);
+	}
+	
 	public void remover(Curso curso) {
 		session.delete(curso);
 	}
