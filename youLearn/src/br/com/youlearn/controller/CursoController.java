@@ -108,11 +108,13 @@ public class CursoController {
 		result.redirectTo(this).curso(curso);
 	}
 	
+	@Administrador
 	@Get @Path("/{curso.id}/pre-teste")
 	public void preTeste(Curso curso) {
 		Curso cursoC = cursoDao.carregaPorId(curso);
 		result.include("curso", cursoC);
 	}
+	@Administrador
 	@Post @Path("/{curso.id}/pre-teste")
 	public void cadastroPreTeste(Questao questao, Curso curso) {
 		Questao question = new Questao();
